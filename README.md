@@ -7,7 +7,7 @@ Layout + tooling untuk dua produk Herdr yang **terpisah**: CLI/TUI (`herdr`) dan
 Butuh Herdr ≥ 0.9.0 dan Python ≥ 3.11 (memakai `tomllib`).
 
 ```sh
-herdr plugin install <owner>/herdr-layout    # dari GitHub
+herdr plugin install Nurmaliki/herdr-layout    # dari GitHub
 herdr plugin link ~/path/ke/herdr-layout     # dari checkout lokal
 herdr plugin log list --plugin herdr-layout  # melihat hasil apply
 ```
