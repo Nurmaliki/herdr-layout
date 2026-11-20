@@ -1,0 +1,42 @@
+id = "herdr-layout"
+name = "Herdr Layout"
+version = "0.2.0"
+min_herdr_version = "0.9.0"
+description = "Apply a declarative .herdr/layout.toml found from the caller's project directory."
+platforms = ["macos", "linux"]
+
+[[actions]]
+id = "apply"
+title = "Layout: apply .herdr/layout.toml"
+contexts = ["pane", "workspace"]
+command = ["python3", "apply.py"]
+
+[[actions]]
+id = "dry-run"
+title = "Layout: dry run (plan goes to the plugin log)"
+contexts = ["pane", "workspace"]
+command = ["python3", "apply.py", "--dry-run"]
+
+[[actions]]
+id = "replace"
+title = "Layout: rebuild workspace from .herdr/layout.toml"
+contexts = ["pane", "workspace"]
+command = ["python3", "apply.py", "--replace"]
+
+[[actions]]
+id = "pick"
+title = "Layout: pick a project layout"
+contexts = ["pane", "workspace"]
+command = ["sh", "-c", "exec \"$HERDR_BIN_PATH\" plugin pane open --plugin herdr-layout --entrypoint pick --focus"]
+
+[[panes]]
+id = "pick"
+title = "Layout picker"
+placement = "popup"
+width = "84%"
+height = 24
+command = ["python3", "pick.py"]
+
+[[events]]
+on = "worktree.created"
+command = ["python3", "apply.py", "--if-present"]

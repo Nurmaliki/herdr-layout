@@ -1,0 +1,32 @@
+# Copy to <repo>/.herdr/layout.toml. Splits are relative to the workspace root
+# pane unless `from = "previous"` (then: the pane created by the step above).
+[workspace]
+label = "app"      # re-apply is skipped once a workspace label contains this
+cwd = "."
+
+[[pane]]
+label = "editor"
+direction = "right"
+ratio = 0.62
+command = "nvim ."
+
+[[pane]]
+label = "shell"
+from = "previous"
+direction = "down"
+ratio = 0.5
+env = { NODE_ENV = "development" }
+
+[[pane]]
+label = "status"
+from = "previous"
+direction = "down"
+ratio = 0.5
+command = "git status -sb"
+
+[[pane]]
+label = "claude"
+direction = "right"
+ratio = 0.42
+agent = "claude"
+prompt = "Read AGENTS.md if present, then wait for my instruction."
