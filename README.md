@@ -37,6 +37,18 @@ Dokumentasi Herdr yang dipakai sebagai rujukan ada di `docs/`.
 | ekstensi | `herdr-plugin.toml` + `herdr plugin link` | `mods/<name>/main.js` |
 | layout | tidak ada (scripted) | `layouts/<name>.json` + `preview` svg |
 
+## Tampilan
+
+Desktop app dengan `dev-layout`: space + agent di kiri, rail panel (`Changes`/`Files`/`Agent`) di kanan, status bar bawah.
+
+![dev-layout](docs/app-dev-layout.png)
+
+Bar navigasi atas (`mods/nm-nav`) dengan rail `Files`:
+
+![nav dan files](docs/nav-features.png)
+
+Screenshot lain: `docs/agent-panel.png` (panel Agent, tab `Feed`) dan `docs/sidebar-features.png`.
+
 ## CLI / TUI
 
 ```
